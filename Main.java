@@ -71,6 +71,34 @@ public class Main{
     }
 }
 
+1546번 문제 평균 구하기
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+    	Scanner sc = new Scanner(System.in);
+    	int a = sc.nextInt();
+    	int k[]=new int[a];
+    	double max=0;
+    	double av=0;
+    	double jumsu[] = new double[a];
+        
+    	for(int i=0; i<a; i++) {
+    		k[i] = sc.nextInt();
+    		if(k[i]>max) {
+    			max=k[i];
+    		}
+    	}
+    	
+    	for(int i=0; i<a; i++) {
+    		jumsu[i] = (k[i]/max)*100;
+    		av += jumsu[i];
+    	}
+    	System.out.println(String.format("%.2f", av/a));
+    }
+}
+
+
 2438번 문제 별찍기
 import java.util.Scanner;
 public class Main{
@@ -130,6 +158,66 @@ public class Main{
         System.out.println(a*b);
     }
 }
+2562번 문제 9개의 숫자 최대값, 자리 구하기
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+    	Scanner sc = new Scanner(System.in);
+    	int a[] =new int[9];
+    	for(int i=0;i<9;i++) {
+    		a[i] = sc.nextInt();
+    	}
+    	int max=a[0];
+    	int temp=1;
+    	for(int i=0; i<9; i++) {
+    		if(a[i]>max) {
+    			max=a[i];
+    			temp=i+1;
+    		}
+    	}
+    	System.out.println(max+"\n"+temp);
+    	
+    }
+}
+2577번 문제 숫자의 개수 세기
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+    	Scanner sc = new Scanner(System.in);
+    	int a = sc.nextInt();
+    	int b = sc.nextInt();
+    	int c = sc.nextInt();
+    	int sum = a*b*c;    	
+    	int count[] = new int[10];
+    	
+    	while(sum>0) {
+    		count[sum%10]++;
+    		sum /= 10;
+    	}
+    	for(int i=0; i<10; i++) {
+    		System.out.println(count[i]);
+    	}
+    }
+}
+--------------------------------------------------
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int result = sc.nextInt()*sc.nextInt()*sc.nextInt();
+		int [] count = new int [10];
+		String number = String.valueOf(result);
+		
+		for(int i = 0; i < number.length(); i++) count[number.charAt(i)-'0']++;
+		for(int i : count) System.out.println(i);
+		sc.close();
+	}
+}
+
 
 2739번 문제 구구단 출력
 import java.util.Scanner;
@@ -212,6 +300,122 @@ public class Main{
         System.out.println(H+" "+M);
     }
 }
+2920번 문제 음계(주어진 배열이 오름차순인지 아닌지 판단)
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+    	Scanner sc = new Scanner(System.in);
+    	String dd = "";
+    	int a[] = new int[8];
+    	int k = 8, j=1,z=1;
+    	for(int i=0; i<8; i++) {
+    		a[i] = sc.nextInt();
+    		if(a[i] == i+1) {
+    			dd = "ascending";
+    			j++;
+    			if(j<z) {
+    				dd = "mixed";
+    				break;
+    			}
+    		}else if(a[i]==k) {
+    			dd = "descending";
+    			z++;
+    			if(z<j) {
+    				dd="mixed";
+    				break;
+    			}
+    		}else {
+    			dd="mixed";
+    			break;
+    		}
+    		k--;
+    	}
+    	System.out.println(dd);
+    }
+}
+
+3052번 문제 중복값 출력하기
+public class Main{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int a[] = new int[10];
+		int tt[] = new int[10];
+		int k[] = new int[42];
+		int count=0;
+		for(int i=0; i<k.length; i++) {
+			k[i] = 0;
+		}
+		for(int i=0; i<10; i++) {
+			a[i] = sc.nextInt();
+			tt[i] = a[i]%42;//42의 나머지값을 넣어줌.
+			k[tt[i]] = 999;
+			
+		}
+		for(int i=0; i<k.length; i++) {
+			if(k[i]==999) {
+				count++;
+			}
+			System.out.println(k[i]);
+		}
+		
+		System.out.println(count);
+	}
+}
+
+-------------------------------------
+import java.util.*; //HashSet(중복불가) 사용 
+public class Main {
+    public static void main(String[] args) {
+    	Scanner sc = new Scanner(System.in);
+    	Set<Integer> set = new HashSet<Integer>();
+    	for(int i =0; i< 10; i++)
+    		set.add(sc.nextInt()%42);
+    	System.out.println(set.size());
+	}
+}
+
+4344번 문제 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.text.DecimalFormat;
+
+public class Main {
+    public static void main(String[] args) {
+    	String per = "0.000%";
+    	DecimalFormat df = new DecimalFormat(per);
+    	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    	try {
+    		int a = Integer.parseInt(br.readLine());
+    		
+    		for(int i=0; i<a; i++) {
+    			String k[] = br.readLine().split(" ");
+    			double kk = Integer.parseInt(k[0]);
+    			double average=0, total=0, av = 0 ,count=0;
+    			int sum[] = new int[(int) kk];
+    			
+    			for(int j=0; j<kk; j++) {
+    				sum[j] = Integer.parseInt(k[j+1]);
+    				total += sum[j];
+    			}
+    			average = total/kk;
+    			for(int j=0; j<kk; j++) {
+    				if(average<sum[j]) {
+    					count++;
+    				}
+    			}
+    			av = count/kk;
+    			System.out.println(df.format(av));
+    		}
+    		bw.flush();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
+}
 
 8393번 문제 1~N까지 합구하기
 import java.util.Scanner;
@@ -229,6 +433,42 @@ public class Main{
        
     }
 }
+
+8958번 문제 OX 퀴즈
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
+public class Main {
+    public static void main(String[] args) {
+    	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    	
+    	try {
+			int a = Integer.parseInt(br.readLine());
+			String k[] = new String[a];
+			for(int i=0; i<a; i++) {
+				k[i] = br.readLine();
+				int sum=0;
+		    		int count=0;
+				for(int j=0; j<k[i].length(); j++) {
+					if(k[i].charAt(j)=='O') {
+						count++;
+						sum+=count;
+					}else {
+						count=0;
+					}
+				}
+				System.out.println(sum);
+			}
+			bw.flush();
+		} catch (Exception e) {
+		}
+    }
+}
+
+
 
 9498번 문제 시험성적 출력하기
 import java.util.Scanner;
