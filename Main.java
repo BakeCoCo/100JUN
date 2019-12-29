@@ -32,6 +32,26 @@ public class Main{
         System.out.println(a/b);
     }
 }
+1110번 문제 더하기 사이클
+import java.util.Scanner;
+class Main{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int a = sc.nextInt();
+		int plus=0,k=0, j=0, z=0,m=0;
+		m=a;
+		while(true){
+			k = a/10;j = a%10;
+			z = (j*10)+(k+j)%10;
+			a = z;
+			plus++;
+			if(a==m) {
+				System.out.println(plus);
+				break;
+			}
+		}
+	}
+}
 
 1330번 문제 < > == 출력
 import java.util.Scanner;
@@ -320,6 +340,31 @@ public class Main{
 		}
 	}
 }
+10818번 문제 최소값, 최대값 구하기(시간복잡도 개념)
+import java.util.Scanner;
+class Main{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int a = sc.nextInt();
+		int b[] = new int[a];
+		
+		for(int i=0; i<a; i++) {
+			b[i] = sc.nextInt();
+		}
+		
+		int max=b[0], min=b[b.length-1];
+		for(int i=0; i<b.length; i++) {
+			if(b[i]>max) {
+				max=b[i];
+			}
+			if(b[i]<min) {
+				min=b[i];
+			}
+		}
+		System.out.println(min+" "+max);
+	}
+}
+
 
 10869번 문제 사칙연산
 import java.util.Scanner;
@@ -337,7 +382,47 @@ public class Main{
     }
 }
 10871번 문제 X보다 작은 수
-
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+public class Main{
+    public static void main(String[] args){
+    	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    	
+    	try {
+    		String a[] = br.readLine().split(" ");
+    		int k = Integer.parseInt(a[1]);
+    		
+    			String b[] = br.readLine().split(" ");
+    			
+    		for(int i=0; i<Integer.parseInt(a[0]); i++) {
+    			if(Integer.parseInt(b[i])<k) {
+    				bw.append(String.valueOf(b[i])+" ");
+    			}
+    		}
+    		bw.flush();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+}
+------------------------
+import java.util.*;
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int i, n;
+		int N = sc.nextInt() ,X = sc.nextInt();
+		for(i = 0;i<N;i++) {
+			n = sc.nextInt();
+			if(n < X) {
+				System.out.print(n + " ");
+			}
+		}
+	}
+}
 
 10950번 문제 a+b
 import java.util.Scanner;
@@ -355,6 +440,24 @@ public class Main{
     }
 }
 
+10951번 문제 a+b (숫자말고 다른문자 들어가면 오류처리)
+import java.util.Scanner;
+
+class Main{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		while(true){
+			try {
+				int a=sc.nextInt(), b=sc.nextInt();
+				System.out.println(a+b);
+				
+			} catch (Exception e) {
+				break;
+			}
+		}
+	}
+}
+
 10998번 문제 a*b
 import java.util.Scanner;
 public class Main{
@@ -366,6 +469,7 @@ public class Main{
         System.out.println(a*b);
     }
 }
+
 
 11021번 문제 Case #N : Sum
 import java.io.BufferedReader;
