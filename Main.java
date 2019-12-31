@@ -771,6 +771,37 @@ public class Main{
 	}
 }
 
+11654번 문제 아스키코드 변환
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+    	Scanner sc = new Scanner(System.in);
+    	String a = sc.next();
+    	System.out.println((int)(a.charAt(0)));
+	}
+}
+
+11720번 문제 숫자의 합(여러숫자를 한번에줘도 하나씩만 더하기)
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+public class Main {
+	public static void main(String[] args) {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		try {
+			int a = Integer.parseInt(br.readLine());
+			int sum=0;
+			String aa = br.readLine();
+			for(int i=0; i<a; i++) {
+				sum += (int)aa.charAt(i)-'0';
+			}
+			System.out.println(sum);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
+
 15552번 문제 빠른 A+B
 import java.io.*;
 public class Main{
@@ -792,7 +823,7 @@ public class Main{
     }
 }
 
-15596번 문제 정수 N개의 합
+15596번 문제 정수 n개의 합
 
 public class Test {
     long sum(int a[]) {
