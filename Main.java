@@ -372,6 +372,33 @@ public class Main{
         System.out.println(H+" "+M);
     }
 }
+
+2908번 문제 숫자 뒤집어서 비교하기
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+public class Main {
+	public static void main(String[] args) throws Exception{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine()," ");
+		int count = st.countTokens();
+		String k[] = new String[count];
+		String reverse = "";
+		int max=0;
+		for(int i=0; st.hasMoreTokens(); i++) {
+			k[i] = st.nextToken();
+			for(int j=count; j>=0; j--) {
+				reverse += k[i].charAt(j)-'0';
+			}
+			if(Integer.parseInt(reverse) > max) {
+				max = Integer.parseInt(reverse);				
+			}
+			reverse="";
+		}
+		System.out.println(max);
+	}
+}
+
 2920번 문제 음계(주어진 배열이 오름차순인지 아닌지 판단)
 import java.util.Scanner;
 
