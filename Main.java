@@ -102,6 +102,117 @@ public class Main {
 	}
 }
 
+1316번 문제 그룹 단어 체커
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+	public static void main(String[] args){
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		try {
+			int k = Integer.parseInt(br.readLine());
+			int ea=0;
+			
+			int alphabet[] = new int[26];
+			for(int i=0; i<alphabet.length; i++) {
+				alphabet[i]=99;
+			}
+			
+			for(int i=0; i<k; i++) {
+				String word = br.readLine().toLowerCase();
+				int w =0;
+				boolean TF = true;
+				for(int j=0; j<word.length(); j++) {
+					w = word.charAt(j)-'a';
+					if(alphabet[w]==99) {
+						alphabet[w] = w;
+					}else if(alphabet[w]==alphabet[(int)word.charAt(j-1)-'a']){
+						
+					}else {
+						TF=false;
+						break;
+					}
+				}
+				for(int z=0; z<alphabet.length; z++) {
+					alphabet[z]=99;
+				}
+				if(TF) {
+					ea++;
+				}
+			}
+			System.out.println(ea);
+		} catch (IOException e) {
+		}
+	}
+}
+----------------------------------------------------------
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+	public static void main(String[] args){
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		try {
+			int a = Integer.parseInt(br.readLine());
+			int count=0;
+			
+			W : for(int i=0; i<a; i++) {
+				String b = br.readLine();
+				
+				for(int j=0; j<b.length()-1; j++) {
+					char c =b.charAt(j);
+					int d = b.indexOf(c,j+1);
+					
+					if(d!=j+1) {
+						if(d!=-1) {
+							continue W;
+						}
+					}
+				}
+				count++;
+			}
+			System.out.println(count);
+		} catch (IOException e) {
+		}
+	}
+}
+-----------------------------------------------------
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+	public static void main(String[] args){
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		try {
+			int ea=0;
+			int k = Integer.parseInt(br.readLine());
+			for(int i=0; i<k; i++) {
+				Boolean TF=true;
+				String b = br.readLine();
+				int max=0;
+				for(int j=0; j<b.length(); j++) {
+					char c = b.charAt(j);
+					if(b.indexOf(c)>=max) {
+						max = b.indexOf(c);						
+					}else {
+						TF=false;
+						break;
+					}
+				}
+				if(TF) {
+					ea++;
+				}
+			}
+			System.out.println(ea);
+		} catch (IOException e) {
+		}
+	}
+}
+	
+
 1330번 문제 < > == 출력
 import java.util.Scanner;
 public class Main{
