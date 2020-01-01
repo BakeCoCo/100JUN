@@ -434,6 +434,34 @@ public class Main {
     }
 }
 
+2941번 문제 크로아티아 알파벳
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+public class Main {
+	public static void main(String[] args){
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		try {
+			String croa[] = {"c=","c-","dz=","d-","lj","nj","s=","z="};
+			String word = br.readLine();
+			for(int i=0; i<croa.length; i++) {
+				word = word.replaceAll(croa[i],"a");
+			}
+			System.out.println(word.length());
+		} catch (IOException e) {
+		}
+	}
+}
+---------------------------------------
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args){
+        String s = new Scanner(System.in).next();
+        s = s.replaceAll("c=|c-|dz=|d-|lj|nj|s=|z=", "a");
+        System.out.println(s.length());
+    }
+}
+
 3052번 문제 중복값 출력하기
 public class Main{
 	public static void main(String[] args) {
