@@ -53,6 +53,19 @@ class Main{
 	}
 }
 
+1152번 문제 단어 갯수 세기
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+public class Main {
+	public static void main(String[] args) throws Exception{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine()," ");
+		System.out.println(st.countTokens());
+	}
+}
+
+
 1157번 문제 단어공부(제일 많이나온 단어 대문자로 출력 같으면 '?' 출력)
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
