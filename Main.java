@@ -53,6 +53,46 @@ class Main{
 	}
 }
 
+1157번 문제 단어공부(제일 많이나온 단어 대문자로 출력 같으면 '?' 출력)
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+public class Main {
+	public static void main(String[] args) {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		try {
+			String word = br.readLine().toLowerCase();
+			int max=0, min=0, check=0;
+			Character ww = '0';
+			int every[] = new int[26];
+			for(int i=0;i<26; i++) {
+				every[i] = 0;
+			}
+			for(int i=0;i<word.length(); i++) {
+				int a = word.charAt(i)-'a';
+				every[a] += 1;
+			}
+			
+			for(int i=0;i<26; i++) {
+				if(every[i]>max) {
+					max = every[i];
+					check = i;
+				}else if(max==every[i]) {
+					min = max;
+				}
+			}
+			if(max==min) {
+				ww ='?';
+			}else {
+				ww = (char)(check+'A');
+			}
+			System.out.println(ww+"");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
+
 1330번 문제 < > == 출력
 import java.util.Scanner;
 public class Main{
