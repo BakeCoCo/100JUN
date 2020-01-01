@@ -58,16 +58,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 public class Main {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		try {
 			String word = br.readLine().toLowerCase();
 			int max=0, min=0, check=0;
-			Character ww = '0';
 			int every[] = new int[26];
-			for(int i=0;i<26; i++) {
-				every[i] = 0;
-			}
 			for(int i=0;i<word.length(); i++) {
 				int a = word.charAt(i)-'a';
 				every[a] += 1;
@@ -81,14 +77,9 @@ public class Main {
 					min = max;
 				}
 			}
-			if(max==min) {
-				ww ='?';
-			}else {
-				ww = (char)(check+'A');
-			}
-			System.out.println(ww+"");
+			System.out.println(max==min ? "?" : (char)(check+'A'));
 		} catch (IOException e) {
-			e.printStackTrace();
+			
 		}
 	}
 }
