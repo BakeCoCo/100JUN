@@ -516,6 +516,29 @@ public class Main {
     }
 }
 
+5622번 문제 다이얼전화기 시간구하기
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+	public static void main(String[] args){
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		try {
+			int sum=0;
+			int b[] = {3,3,3,4,4,4,5,5,5,6,6,6,7,7,7,8,8,8,8,9,9,9,10,10,10,10};
+			String call = br.readLine().toUpperCase();
+			for(int i=0; i<call.length(); i++) {
+				int k = call.charAt(i)-'A';
+				sum += b[k];
+			}
+			System.out.println(sum);
+		} catch (IOException e) {
+		}
+	}
+}
+
+
 8393번 문제 1~N까지 합구하기
 import java.util.Scanner;
 
