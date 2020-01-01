@@ -218,6 +218,29 @@ public class Main {
 	}
 }
 
+2675번 문제 문자열 반복
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+public class Main {
+	public static void main(String[] args) {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		try {
+			int aa = Integer.parseInt(br.readLine());
+			for(int i=0; i<aa; i++) {
+				String b[] = br.readLine().split(" ");
+				for(int z=0; z<b[1].length(); z++) {
+					for(int qq=0; qq<Integer.parseInt(b[0]); qq++) {
+						System.out.print(b[1].charAt(z));
+						}
+				}
+				System.out.println();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
 
 2739번 문제 구구단 출력
 import java.util.Scanner;
