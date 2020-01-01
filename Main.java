@@ -64,6 +64,16 @@ public class Main {
 		System.out.println(st.countTokens());
 	}
 }
+-----------------------------------------------
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+public class Main {
+	public static void main(String[] args) throws Exception{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println(new StringTokenizer(br.readLine()," ").countTokens());
+	}
+}
 
 
 1157번 문제 단어공부(제일 많이나온 단어 대문자로 출력 같으면 '?' 출력)
