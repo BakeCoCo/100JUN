@@ -526,6 +526,42 @@ public class Main{
     }
 }
 
+10809번 문제 문자열이 몇번째에 처음 등장했는지 알아내시오
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+public class Main {
+	public static void main(String[] args) {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		try {
+			int sum=0;
+			String aa = br.readLine();
+			int kk[] = new int[26];
+			for(int i=0; i<26; i++) {
+				kk[i]= -1;
+			}
+			
+			for(int i=0; i<aa.length(); i++) {
+				sum = (int)aa.charAt(i)-'a';
+				if(kk[sum]==-1) {
+					kk[sum] = i;					
+				}
+			}
+			int s=1;
+			for(int k : kk) {
+				if(s==1) {
+					System.out.print(k);
+					s++;
+				}else {
+					System.out.print(" "+k);
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
+
 10817번 문제 2번째로 큰값 출력
 import java.util.Scanner;
 
