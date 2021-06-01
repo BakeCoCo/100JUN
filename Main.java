@@ -102,6 +102,37 @@ public class Main {
 	}
 }
 
+1193번 문제 분수찾기
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+
+public class ZigZag {
+
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int x = Integer.parseInt(br.readLine());
+        int sum = 0; int count = 1;
+        while(true){
+            if(x <= sum+count){
+                if(count%2==1){
+                    System.out.println((count-(x-sum-1))+"/"+(x-sum));
+                    break;
+                }else{
+                    System.out.println((x-sum)+"/"+(count-(x-sum-1)));
+                    break;
+                }
+            }else{
+                sum += count;
+                count++;
+            }
+        }
+
+    }
+}
+
+
 1316번 문제 그룹 단어 체커
 import java.io.BufferedReader;
 import java.io.IOException;
