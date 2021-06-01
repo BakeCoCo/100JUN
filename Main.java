@@ -543,7 +543,7 @@ public class Main{
     }
 }
 
-2775번 문제 ACM호텔
+2775번 문제 부녀회장이 될테야
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /*
