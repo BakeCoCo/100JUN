@@ -1131,3 +1131,32 @@ public class Test {
         return ans;
     }
 }
+
+4673번 문제 셀프넘버
+import java.util.HashMap;
+public class Main {
+    public static void main(String[] args) {
+        int n;
+        int d;
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        for (int i = 1; i <= 10000; i++) {
+            n = i;
+            d = n;
+            while (n > 0) {
+                d += n % 10;
+                n /= 10;
+            }
+            hm.put(d,1);
+            if(hm.containsKey(i)){
+                hm.put(i,1);
+            }else{
+                hm.put(i,0);
+            }
+        }
+        for(Integer k : hm.keySet()){
+            if(hm.get(k).equals(0)){
+                System.out.println(k);
+            }
+        }
+    }
+}
