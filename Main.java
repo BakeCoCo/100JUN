@@ -844,6 +844,47 @@ public class Main{
     }
 }
 
+10250번 문제 ACM호텔
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Snail {
+    public static void main(String[] args) {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        try {
+            int k = Integer.parseInt(br.readLine());
+            while(k>0){
+                StringTokenizer st = new StringTokenizer(br.readLine()," ");
+                int h = Integer.parseInt(st.nextToken());
+                int w = Integer.parseInt(st.nextToken());
+                int n = Integer.parseInt(st.nextToken());
+                int x = n%h;
+                int y = n/h+1;
+                if(x==0){
+                    x=h;
+                    y -=1;
+                }
+
+                if(y>9){
+                    System.out.println(x +""+ y);
+                }else{
+                    System.out.println(x +"0"+ y);
+                }
+                k--;
+            }
+
+        } catch (IOException e) {
+
+        }
+    }
+}
+
+
+
 10430번 문제 나머지 출력
 import java.util.Scanner;
 public class Main{
