@@ -577,6 +577,34 @@ public class PowerCEO {
     }
 }
 
+2839번 문제 설탕배달
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class SugarMan {
+    public static void main(String[] args) {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        try {
+
+            int sugar = Integer.parseInt(br.readLine());
+            if(sugar==7 || (sugar<5 && sugar!=3)){
+                System.out.println(-1);
+            }else if(sugar%5==0){
+                System.out.println(sugar/5);
+            }else if(sugar%5==1 || sugar%5==3){
+                System.out.println((sugar/5)+1);
+            }else if(sugar%5==2 || sugar%5==4){
+                System.out.println((sugar/5)+2);
+            }
+        }catch (Exception e){
+            System.out.println("Go To Hell");
+        }
+
+    }
+}
+
+
 2884번 문제 45분 일찍 알람맞추기
 import java.util.Scanner;
 
