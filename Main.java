@@ -293,7 +293,35 @@ public class Main{
         }
 }
 
+1712번 문제 손익분기점
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+	public static void main(String[] args){
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		try {
+			String a[] = br.readLine().split(" ");
+			int k1 = Integer.parseInt(a[0]);
+			int k2 = Integer.parseInt(a[1]);
+			int k3 = Integer.parseInt(a[2]);
+			int ea=0;
+			int money = k3-k2;
+			if(money>0) {
+				ea = k1/money+1;
+			}else {
+				ea= -1;
+			}
+			if(ea==0) {
+				ea=1;
+			}
+			System.out.println(ea);
+		} catch (IOException e) {
+		}
+	}
+}
 
 2557번 문제 "Hello World!" 출력
 public class Main{
