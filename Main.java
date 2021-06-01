@@ -972,6 +972,27 @@ public class Main{
     }
 }
 
+10757번 문제 큰수A+B
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.math.BigInteger;
+import java.util.StringTokenizer;
+
+public class BigNumber {
+    public static void main(String[] args) {
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            try {
+                StringTokenizer sz = new StringTokenizer(br.readLine()," ");
+                BigInteger a = new BigInteger(sz.nextToken());
+                BigInteger b = new BigInteger(sz.nextToken());
+                a = a.add(b);
+                System.out.println(a.toString());
+            }catch (Exception e){
+
+            }
+    }
+}
+
 10809번 문제 문자열이 몇번째에 처음 등장했는지 알아내시오
 import java.io.BufferedReader;
 import java.io.IOException;
