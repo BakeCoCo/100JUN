@@ -32,6 +32,57 @@ public class Main{
         System.out.println(a/b);
     }
 }
+
+1011번 문제 Fly me to the Alpha Centauri 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+/*
+* 1         =1       1 =  1
+* 11        =2       1 =  2
+* 111       =3       1 =  3
+* 121       =4       2 =  3
+* 1211      =5       2 =  4
+* 1221      =6       2 =  4
+* 12211     =7       2 =  5
+* 12221     =8       2 =  5
+* 12321     =9       3 =  5
+* 123211    =10      3 =  6
+* 123221    =11      3 =  6
+* 123321    =12      3 =  6
+* 1233211   =13      3 =  7
+* 1233221   =14      3 =  7
+* 1233321   =15      3 =  7
+* 1234321   =16      4 =  7
+* 12343211  =17      4 =  8
+* 거리의 제곱근
+* */
+public class FlyToTheCentauri {
+    public static void main(String[] args) throws Exception{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int x = Integer.parseInt(br.readLine());
+        while(x>0){
+            StringTokenizer sz = new StringTokenizer(br.readLine()," ");
+            int a = Integer.parseInt(sz.nextToken());
+            int b = Integer.parseInt(sz.nextToken());
+            int c = b-a;
+            int k = (int)Math.sqrt(c);
+
+            if(k == Math.sqrt(c)){
+                System.out.println(k*2 -1);
+            }else if(c<= k*k+k){
+                System.out.println(k*2);
+            }else{
+                System.out.println(k*2+1);
+            }
+            x--;
+        }
+
+    }
+}
+
+
+
 1110번 문제 더하기 사이클
 import java.util.Scanner;
 class Main{
