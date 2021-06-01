@@ -543,6 +543,40 @@ public class Main{
     }
 }
 
+2775번 문제 ACM호텔
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+/*
+* 1부터 n까지 더함.
+* 각 층별로 해줌 (15층)
+* */
+public class PowerCEO {
+    public static void main(String[] args) {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        try {
+            int k = Integer.parseInt(br.readLine());
+            for(int x=0; x<k; x++){
+                int q = Integer.parseInt(br.readLine());
+                int w = Integer.parseInt(br.readLine());
+                int APT[][] = new int[15][15];
+                for(int i=0; i<15; i++){
+                    APT[i][1]=1;
+                    APT[0][i]=i;
+                }
+                for(int j=1; j<15; j++){
+                    for(int e=2; e<15; e++){
+                        APT[j][e] = APT[j][e-1] + APT[j-1][e];
+                    }
+                }
+                System.out.println(APT[q][w]);
+            }
+        }catch (Exception e){
+
+        }
+    }
+}
+
 2884번 문제 45분 일찍 알람맞추기
 import java.util.Scanner;
 
