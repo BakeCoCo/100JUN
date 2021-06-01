@@ -258,6 +258,29 @@ public class Main {
     }
 }
 
+2292번 문제 벌집
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int k = sc.nextInt()-1;
+        int q = k;
+        int i = 0;
+        while(k>0){
+            if(i!=0){
+                k -= i*6;
+            }
+            i++;
+        }
+        if(q==0){
+            System.out.println(1);
+        }else{
+            System.out.println(i);
+        }
+
+    }
+}
 
 2438번 문제 별찍기
 import java.util.Scanner;
