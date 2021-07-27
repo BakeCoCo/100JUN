@@ -340,6 +340,36 @@ public class Main {
     }
 }
 
+1712번 문제 손익분기점
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+	public static void main(String[] args){
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		try {
+			String a[] = br.readLine().split(" ");
+			int k1 = Integer.parseInt(a[0]);
+			int k2 = Integer.parseInt(a[1]);
+			int k3 = Integer.parseInt(a[2]);
+			int ea=0;
+			int money = k3-k2;
+			if(money>0) {
+				ea = k1/money+1;
+			}else {
+				ea= -1;
+			}
+			if(ea==0) {
+				ea=1;
+			}
+			System.out.println(ea);
+		} catch (IOException e) {
+		}
+	}
+}
+
 1978번 문제 소수 찾기
 /*
 숫자 입력하는데
@@ -446,40 +476,62 @@ public class Main{
         }
 }
 
-1712번 문제 손익분기점
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-public class Main {
-	public static void main(String[] args){
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		try {
-			String a[] = br.readLine().split(" ");
-			int k1 = Integer.parseInt(a[0]);
-			int k2 = Integer.parseInt(a[1]);
-			int k3 = Integer.parseInt(a[2]);
-			int ea=0;
-			int money = k3-k2;
-			if(money>0) {
-				ea = k1/money+1;
-			}else {
-				ea= -1;
-			}
-			if(ea==0) {
-				ea=1;
-			}
-			System.out.println(ea);
-		} catch (IOException e) {
-		}
-	}
-}
 
 2557번 문제 "Hello World!" 출력
 public class Main{
     public static void main(String[] args){
         System.out.println("Hello World!");
+    }
+}
+
+
+2581번 문제 소수 소수의 합계 + 최소값 + 없으면 -1 출력
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class SoSu2581 {
+    public static void main(String[] args) {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        try {
+            int x = Integer.parseInt(br.readLine());
+            int y = Integer.parseInt(br.readLine());
+            int sum = 0;
+            int cnt = 0;
+            int check = 0;
+            int min = 0;
+            while(x<=y) {
+                boolean tr = false;
+                for(int i=1; i<x; i++){
+                    if(x%i == 0){
+                        if(i==1 || i==x){
+                            tr = true;
+                            check = x;
+                        }else{
+                            tr = false;
+                            break;
+                        }
+                    }
+                }
+                if(tr){
+                    cnt++;
+                    sum += check;
+                    if(min == 0){
+                        min = check;
+                    }
+                }
+                x++;
+            }
+            if(sum>0){
+                System.out.println(sum);
+                System.out.println(min);
+            }else{
+                System.out.println(-1);
+            }
+
+        }catch (Exception e){
+
+        }
     }
 }
 
