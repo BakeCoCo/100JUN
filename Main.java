@@ -340,6 +340,54 @@ public class Main {
     }
 }
 
+1978번 문제 소수 찾기
+/*
+숫자 입력하는데
+처음은 몇개입력할지
+두번째는 숫자 1열로 띄어쓰기로 나열
+*/
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class SoSuFind1978 {
+    public static void main(String[] args) {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        try {
+            int k = Integer.parseInt(br.readLine());
+            StringTokenizer sz = new StringTokenizer(br.readLine(), " ");
+            int sum = 0;
+            if(k == sz.countTokens()){
+                while(sz.hasMoreTokens()){
+                    int x = Integer.parseInt(sz.nextToken());
+                    boolean tr = false;
+                    for(int i=1; i<x; i++){
+                        if(x%i == 0){
+                           if(i==1 || i==x){
+                               tr = true;
+                           }else{
+                               tr = false;
+                               break;
+                           }
+                        }
+                    }
+                    if(tr){
+                        sum++;
+                    }
+                }
+                System.out.println(sum);
+            }else{
+                System.out.println("입력 제대로하렴");
+            }
+
+        }catch (Exception e){
+
+        }
+    }
+}
+
+
 2292번 문제 벌집
 import java.util.Scanner;
 
