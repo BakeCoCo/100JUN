@@ -81,6 +81,39 @@ public class FlyToTheCentauri {
     }
 }
 
+1065번 문제 한수
+/*뭐 이딴 문제가 다있어*/
+
+import java.util.*;
+
+public class OneNumber01 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        if (num<100){
+            System.out.println(num);
+        }
+        else{
+            int result = 99;
+
+            for (int i = 111; i <= num; i++)
+                result += han(i);
+            System.out.println(result);
+        }
+    }
+
+    private static int han (int inum) {
+        int hun = inum / 100;
+        int ten = inum % 100 / 10;
+        int one = inum % 10;
+
+        if (ten*2 == hun + one) {
+            return 1;
+        }
+
+        return 0;
+    }
+}
 
 
 1110번 문제 더하기 사이클
@@ -369,6 +402,50 @@ public class Main {
 		}
 	}
 }
+
+1929번 문제 소수 찾기
+/*에라토스테네스의 체 알고리즘을 활용해야지 시간초과가 안뜬다..*/
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+public class SoSu1929 {
+    public static boolean[] prime;
+    public static void main(String[] args) {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        try {
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int x = Integer.parseInt(st.nextToken());
+        int y = Integer.parseInt(st.nextToken());
+
+        prime = new boolean[y + 1];
+        get_prime();
+
+        StringBuilder sb = new StringBuilder();
+        for(int i = x; i <= y; i++) {
+            // false = 소수
+            if(!prime[i]) sb.append(i).append('\n');
+        }
+            System.out.println(sb);
+        }catch (Exception e){
+
+        }
+    }
+
+    // 에라토스테네스의 체 알고리즘
+    public static void get_prime() {
+        // true = 소수아님 , false = 소수
+        prime[0] = prime[1] = true;
+
+        for(int i = 2; i <= Math.sqrt(prime.length); i++) {
+            if(prime[i]) continue;
+            for(int j = i * i; j < prime.length; j += i) {
+                prime[j] = true;
+            }
+        }
+    }
+}
+
 
 1978번 문제 소수 찾기
 /*
@@ -950,6 +1027,35 @@ public class Main {
     }
 }
 
+4673번 문제 셀프넘버
+import java.util.HashMap;
+public class Main {
+    public static void main(String[] args) {
+        int n;
+        int d;
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        for (int i = 1; i <= 10000; i++) {
+            n = i;
+            d = n;
+            while (n > 0) {
+                d += n % 10;
+                n /= 10;
+            }
+            hm.put(d,1);
+            if(hm.containsKey(i)){
+                hm.put(i,1);
+            }else{
+                hm.put(i,0);
+            }
+        }
+        for(Integer k : hm.keySet()){
+            if(hm.get(k).equals(0)){
+                System.out.println(k);
+            }
+        }
+    }
+}
+
 5622번 문제 다이얼전화기 시간구하기
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -1424,6 +1530,36 @@ public class Main{
 		
 	}
 }
+11653번 문제 소인수분해
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class SoinSuDivide {
+    public static void main(String[] args) {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        try{
+
+            int k = Integer.parseInt(br.readLine());
+
+            while(k>0){
+                for(int i=2; i<=k; i++){
+                    if(k%i == 0){
+                        k = k/i;
+                        System.out.println(i+", "+k);
+                        break;
+                    }
+                }
+                if(k==1){
+                    break;
+                }
+            }
+
+        }catch (Exception e){
+
+        }
+    }
+}
+
 
 11654번 문제 아스키코드 변환
 import java.util.Scanner;
@@ -1489,65 +1625,3 @@ public class Test {
     }
 }
 
-4673번 문제 셀프넘버
-import java.util.HashMap;
-public class Main {
-    public static void main(String[] args) {
-        int n;
-        int d;
-        HashMap<Integer, Integer> hm = new HashMap<>();
-        for (int i = 1; i <= 10000; i++) {
-            n = i;
-            d = n;
-            while (n > 0) {
-                d += n % 10;
-                n /= 10;
-            }
-            hm.put(d,1);
-            if(hm.containsKey(i)){
-                hm.put(i,1);
-            }else{
-                hm.put(i,0);
-            }
-        }
-        for(Integer k : hm.keySet()){
-            if(hm.get(k).equals(0)){
-                System.out.println(k);
-            }
-        }
-    }
-}
-
-1065번 문제 한수
-/*뭐 이딴 문제가 다있어*/
-
-import java.util.*;
-
-public class OneNumber01 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int num = sc.nextInt();
-        if (num<100){
-            System.out.println(num);
-        }
-        else{
-            int result = 99;
-
-            for (int i = 111; i <= num; i++)
-                result += han(i);
-            System.out.println(result);
-        }
-    }
-
-    private static int han (int inum) {
-        int hun = inum / 100;
-        int ten = inum % 100 / 10;
-        int one = inum % 10;
-
-        if (ten*2 == hun + one) {
-            return 1;
-        }
-
-        return 0;
-    }
-}
