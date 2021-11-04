@@ -1192,6 +1192,84 @@ public class Main {
     }
 }
 
+/*
+ * 9020번 문제
+ * 골드바흐의 추측
+ * */
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
+public class practice001 {
+    public static boolean[] prime;
+    public static void main(String[] args) {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            List<Integer> k = new ArrayList<>();
+            int count = Integer.parseInt(br.readLine());
+            while(count>0) {
+                StringTokenizer st = new StringTokenizer(br.readLine());
+                int x = Integer.parseInt(st.nextToken());
+                k.add(x);
+                count--;
+            }
+            for(int s=0; s<k.size(); s++){
+                int num = k.get(s);
+                prime = new boolean[num+1];
+                get_prime();
+                List<Integer> listA = new ArrayList<>();
+                for (int i = 0; i <= num; i++) {
+                    // false = 소수
+                    if (!prime[i]) {
+                        listA.add(i);
+                    }
+                }
+                int aa=0;
+                int bb=0;
+                int max=0;
+                int min=0;
+                for(int ls=0; ls<listA.size(); ls++){
+                    aa = listA.get(ls);
+                    if(max==min && max!=0){
+                        break;
+                    }
+                    for(int lx=ls; lx<listA.size(); lx++){
+                        bb = listA.get(lx);
+                        if(aa+bb ==num) {
+                            if(aa==bb){
+                                max = aa;
+                                min = bb;
+                                break;
+                            }
+                            if(bb-aa<0){
+                                break;
+                            }
+                            max = aa;
+                            min = bb;
+                        }
+                    }
+                }
+                System.out.println(max+" "+min);
+            }
+        }catch (Exception e){
+
+        }
+    }
+
+    // 에라토스테네스의 체 알고리즘
+    public static void get_prime() {
+        // true = 소수아님 , false = 소수
+        prime[0] = prime[1] = true;
+        for(int i = 0; i <= Math.sqrt(prime.length); i++) {
+            if(prime[i]) continue;
+            for(int j = i * i; j < prime.length; j += i) {
+                prime[j] = true;
+            }
+        }
+    }
+}
 
 
 9498번 문제 시험성적 출력하기
