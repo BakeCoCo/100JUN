@@ -1056,6 +1056,68 @@ public class Main {
     }
 }
 
+/*
+* 베르트랑 공준
+* 4948번 문제
+* */
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
+public class practice001 {
+    public static boolean[] prime;
+    public static void main(String[] args) {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            List<Integer> k = new ArrayList<>();
+
+            while(true) {
+                StringTokenizer st = new StringTokenizer(br.readLine());
+                int x = Integer.parseInt(st.nextToken());
+                if (x == 0) {
+                    break;
+                } else {
+                    k.add(x);
+                }
+            }
+
+            StringBuilder sb = new StringBuilder();
+
+            for(int s=0; s<k.size(); s++){
+                int num = k.get(s);
+                int z = 0;
+                prime = new boolean[(num * 2)+1];
+                get_prime();
+
+                for (int i = num+1; i <= num * 2; i++) {
+                    // false = 소수
+                    if (!prime[i]) z++;
+                }
+                sb.append(z).append('\n');
+            }
+            System.out.println(sb.delete(sb.length()-1,sb.length()));
+        }catch (Exception e){
+
+        }
+    }
+	
+    // 에라토스테네스의 체 알고리즘
+    public static void get_prime() {
+        // true = 소수아님 , false = 소수
+        prime[0] = prime[1] = true;
+        for(int i = 0; i <= Math.sqrt(prime.length); i++) {
+            if(prime[i]) continue;
+            for(int j = i * i; j < prime.length; j += i) {
+                prime[j] = true;
+            }
+        }
+    }
+}
+
+
+
 5622번 문제 다이얼전화기 시간구하기
 import java.io.BufferedReader;
 import java.io.IOException;
