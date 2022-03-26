@@ -20,6 +20,44 @@ public class Main{
         System.out.println(a-b);
     }
 }
+1003번 문제 피보나치 함수
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args){
+        try {
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            int x = Integer.parseInt(br.readLine());
+            int k[] = new int[x];
+
+            for(int i=0; i<x; i++){
+                 k[i] = Integer.parseInt(br.readLine());
+            }
+            for(int value : k){
+                if(value==0){
+                    System.out.println("1 0");
+                }else if (value==1){
+                    System.out.println("0 1");
+                }else{
+			// 2부터 시작하게끔
+                    fibo(2,value,1,1,2);
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static int fibo(int zero,int value,int b, int c,int d){
+        zero++;
+        if(zero==value+1){
+            System.out.println(b+" "+c);
+        }else{
+            return fibo(zero,value,c,d,c+d);
+        }
+        return 0;
+    }
+}
 
 1008번 문제 a/b출력
 import java.util.Scanner;
